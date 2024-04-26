@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useCookies } from "react-cookie";
 import moment from "moment";
 import axios from "axios";
 import Write from "./Write";
 import Wrote from "./Wrote";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +37,9 @@ const CenterText = styled.div`
     position: sticky;
     top: 30px;
     bottom: 30px;
+
+    opacity: 0;
+    animation: ${fadeIn} 1s ease forwards; 
 `;
 
 const TodayDate = styled.div`
